@@ -1,6 +1,6 @@
 const http = require('http')
 
-const port = process.env.PORT || 1337
+const port = process.env.PORT || 3000
 
 const server = http.createServer(function (req, res) {
   res.setHeader('Content-Type', 'application/json');
