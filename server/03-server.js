@@ -95,6 +95,7 @@ function respondDymanicResponse(req, res) {
       count: input.length,
       reverse: input.split('').reverse().join('')
     })
+    server.listen()
   )
 }
-
+}
