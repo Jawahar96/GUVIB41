@@ -20,21 +20,20 @@ const server = http.createServer(function (req, res) {
 
  
 
-<<<<<<< HEAD
-=======
-  // if (req.url.match(/^\/dr/)) return respondDymanicResponse(req, res)
+
+  if (req.url.match(/^\/dr/)) return respondDymanicResponse(req, res)
 
   if (req.url.match(/^\/dr/)) return respondDymanicResponse(req, res)
 
   respondNotFound(req, res)
->>>>>>> 535b491edb7561680901b77953e339296abeb0d3
+
 })
 
 server.listen(port)
 
 console.log(`Server listening on port  {port}`);
 
-<<<<<<< HEAD
+
  
 let a=20;
   let b=30;
@@ -43,11 +42,11 @@ function Add(req, res) {
   res.setHeader('Content-Type', 'text/plain')
   res.end(a+b);
   
-=======
+
 function respondText(req, res) {
   // res.setHeader('Content-type', 'text/plain')
   res.end('Hello')
->>>>>>> 535b491edb7561680901b77953e339296abeb0d3
+ 
 }
 
 function Sub(req, res) {
@@ -56,7 +55,7 @@ function Sub(req, res) {
   
 }
 
-<<<<<<< HEAD
+
 function Mul(req, res) {
   res.setHeader(  'Content-Type', 'text/plain' )
   res.end('a*b')
@@ -68,11 +67,8 @@ function Div(req,res){
 }
 
 
-
-
-=======
 function respondNotFound(req, res) {
-  // res.writeHead(404, { 'Content-Type': 'text/plain' })
+  res.writeHead(404, { 'Content-Type': 'text/plain' })
   res.end('Not Found')
 }
 
@@ -101,4 +97,4 @@ function respondDymanicResponse(req, res) {
     })
   )
 }
->>>>>>> 535b491edb7561680901b77953e339296abeb0d3
+
