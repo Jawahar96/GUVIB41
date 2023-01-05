@@ -1,6 +1,7 @@
 const http = require('http')
+const querystring= require('querystring')
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 1337
 
 const server = http.createServer(function (req, res) {
   console.log(req.url);
@@ -12,33 +13,40 @@ const server = http.createServer(function (req, res) {
 
   if (req.url==='/Div') return Div(req.res);
 
-  respondNotFound(req, res)
+ 
+
 })
 
-server.listen(port);
+server.listen(port)
 
-console.log(`Server listening on port ${port}`);
+console.log(`Server listening on port  {port}`);
 
-a=2;
-b=2
-
+ 
+let a=20;
+  let b=30;
 function Add(req, res) {
-  res.setHeader('Content-type', 'text/plain')
-  res.end('a+b')
+  
+  res.setHeader('Content-Type', 'text/plain')
+  res.end(a+b);
+  
 }
 
 function Sub(req, res) {
   res.setHeader('Content-Type', 'text/plain')
   res.end('a-b');
+  
 }
 
 function Mul(req, res) {
-  res.setHeader(404, { 'Content-Type': 'text/plain' })
+  res.setHeader(  'Content-Type', 'text/plain' )
   res.end('a*b')
 }
 function Div(req,res){
   res.setHeader('Content-Type','text/plain');
   res.end('a/b');
   
-  server.listen(port);
 }
+
+
+
+
