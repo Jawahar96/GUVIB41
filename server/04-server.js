@@ -75,6 +75,7 @@ function respondStatic(req, res) {
  
   console.log("@@@@@@@@@ " + __dirname);
   console.log("File name: " + req.url.split('/static')[1]);
+  console.log("Split ------ " + req.url.split('/static'));
   const filename = `${__dirname}/public${req.url.split('/static')[1]}`;
   console.log('####' + filename);
   fs.createReadStream(filename)

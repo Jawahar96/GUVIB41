@@ -1,23 +1,12 @@
-const res = require('express/lib/response');
-const fs=require('fs');
 
-const express =('express');
-
-const port =process.env || 3000
-const app=express();
-
-app.get('/',respondText)
-app.get('/json' ,respondJson)
-app.get('./dr',respondDynamicRespond);
-
-app.listen(port ,() =>
-    console.log(`Server is listening on port ${port}`));
-
-    
-
-function respondText(req,res){
-    res.setHeader('Content-type', 'text/plain')
-    res.end('Helo Guvi');
+function respondSSE(req, res) {
+  res.writeHead(200, {
+    'Content-Type': 'text/event-stream',
+    'Connection': 'keep-alive'
+  })
+  const onMessage = msg => res.write(`data: ${msg}\n\n`)
+  chatEmitter.on('message', onMessage)
+  res.on('close', function () {
+    chatEmitter.off('message', onMessage)
+  })
 }
-
-
