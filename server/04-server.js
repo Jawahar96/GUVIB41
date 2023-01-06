@@ -4,7 +4,7 @@ const querystring = require('querystring')
 
 const fs = require('fs')
 
-const port = process.env.PORT || 1337
+const port = process.env.PORT || 3000
 
 //req.url - It will always contain the full path of the client request
 //Routing - All client requests are not same, we should respond differently 
@@ -15,23 +15,25 @@ const server = http.createServer(function (req, res) {
 
   if (req.url === '/json') return respondJson(req, res)
 
-  // if (req.url.match(/^\/dr/)) return respondDymanicResponse(req, res)
+  if (req.url.match(/^\/dr/)) return respondDymanicResponse(req, res)
 
   if (req.url.match(/^\/dr/)) return respondDymanicResponse(req, res)
 
   if (req.url.match(/^\/static/)) return respondStatic(req, res)
+  
+  if(req.url.match(/^\/api/)) return respondapi (req,res)
 
-  respondNotFound(req, res)
+  // respondNotFound(req, res)
 })
 
 server.listen(port);
 
 console.log(`Server listening on port ${port}`);
 
-function respondText(req, res) {
-  // res.setHeader('Content-type', 'text/plain')
-  res.end('Hello')
-}
+// function respondText(req, res) {
+//   // res.setHeader('Content-type', 'text/plain')
+//   res.end('Hello')
+// }
 
 function respondJson(req, res) {
   res.setHeader('Content-Type', 'application/json')
@@ -70,6 +72,7 @@ function respondDymanicResponse(req, res) {
 }
 
 function respondStatic(req, res) {
+ 
   console.log("@@@@@@@@@ " + __dirname);
   console.log("File name: " + req.url.split('/static')[1]);
   const filename = `${__dirname}/public${req.url.split('/static')[1]}`;
@@ -78,3 +81,21 @@ function respondStatic(req, res) {
     .on('error', () => respondNotFound(req, res))
     .pipe(res)
 }
+function respondapi(){
+  const { param = '' } = querystring.parse(
+    req.url
+      .split('?')
+      .slice(1)
+      .join('')
+  )
+  const { paramB = '' } = querystring.parse(
+
+    req.url
+    .split('?')
+    .slice(1)
+    .join('')
+  )
+  console.log(param)
+  console.log(paramB)
+}
+const ()
