@@ -4,7 +4,7 @@
 const http = require('http') //Hyper Text Transfer Protocol
 //require() - is a globally accessible function in Node.js and is always available.
 
-const port = process.env.PORT || 1337
+const port = process.env.PORT || 3000
 
 //We use http.createServer to create HTTP server object and assign it to the server variable.
 //http.createServer() accepts a single argument: a request listener function.

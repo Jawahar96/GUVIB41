@@ -1,9 +1,7 @@
 const http = require('http')
 const querystring= require('querystring')
 
-const querystring = require('querystring')
-
-const port = process.env.PORT || 1337
+const port = process.env.PORT || 3000
 
 //req.url - It will always contain the full path of the client request
 //Routing - All client requests are not same, we should respond differently 
@@ -32,8 +30,6 @@ const server = http.createServer(function (req, res) {
 server.listen(port)
 
 console.log(`Server listening on port  {port}`);
-
-
  
 let a=20;
   let b=30;
@@ -44,7 +40,7 @@ function Add(req, res) {
   
 
 function respondText(req, res) {
-  // res.setHeader('Content-type', 'text/plain')
+  res.setHeader('Content-type', 'text/plain')
   res.end('Hello')
  
 }
@@ -68,7 +64,7 @@ function Div(req,res){
 
 
 function respondNotFound(req, res) {
-  res.writeHead(404, { 'Content-Type': 'text/plain' })
+  // res.writeHea(404, { 'Content-Type': 'text/plain' })
   res.end('Not Found')
 }
 
@@ -95,7 +91,7 @@ function respondDymanicResponse(req, res) {
       count: input.length,
       reverse: input.split('').reverse().join('')
     })
-    server.listen()
+    
   )
 }
 }
