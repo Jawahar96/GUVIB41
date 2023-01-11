@@ -23,7 +23,7 @@ const server = http.createServer(function (req, res) {
 
   if (req.url.match(/^\/dr/)) return respondDymanicResponse(req, res)
 
-  respondNotFound(req, res)
+  // respondNotFound(req, res)
 
 })
 
@@ -41,7 +41,7 @@ function Add(req, res) {
 
 function respondText(req, res) {
   res.setHeader('Content-type', 'text/plain')
-  res.end('Hello')
+  res.end('a+b')
  
 }
 
@@ -64,7 +64,7 @@ function Div(req,res){
 
 
 function respondNotFound(req, res) {
-  // res.writeHea(404, { 'Content-Type': 'text/plain' })
+  res.writeHea(404, { 'Content-Type': 'text/plain' })
   res.end('Not Found')
 }
 

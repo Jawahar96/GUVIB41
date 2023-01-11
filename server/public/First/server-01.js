@@ -3,7 +3,7 @@ const express = require('express');
 const fs = require('fs').promises;
 const path = require('path');
 
-const port = process.env.PORT || 1337;
+const port = process.env.PORT || 3000;
 
 const app = express();
 
@@ -21,3 +21,5 @@ async function getProducts(req, res) {
     res.status(500).json({ error: err.message })
   }
 }
+const url='http://localhost:3000/products'
+.fetch(url).then((res)=res.json()).then(products=>console.log(products))

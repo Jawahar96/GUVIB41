@@ -99,6 +99,6 @@ function respondapi(){
   console.log(param)
   console.log(paramB)
 
-  const {paramc=''}= querystring.parse
+  
 
 }
