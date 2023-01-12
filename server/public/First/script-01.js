@@ -21,5 +21,3 @@ async function getProducts(req, res) {
     res.status(500).json({ error: err.message })
   }
 }
-const url='http://localhost:3000/products'
-.fetch(url).then((res)=res.json()).then(products=>console.log(products))
